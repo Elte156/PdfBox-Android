@@ -2135,4 +2135,17 @@ public final class PDPageContentStream implements Closeable
     {
         return val < 0 || val > 1;
     }
+
+    /**
+     * Set the character spacing. The value shall be added to the horizontal or vertical component
+     * of the glyph's displacement, depending on the writing mode.
+     *
+     * @param spacing character spacing
+     * @throws IOException If the content stream could not be written.
+     */
+    public void setCharacterSpacing(float spacing) throws IOException
+    {
+        writeOperand(spacing);
+        writeOperator("Tc");
+    }
 }
